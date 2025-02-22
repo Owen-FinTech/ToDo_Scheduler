@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.collections.FXCollections?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="com.scheduler.ui.UpdateTaskController"
+      spacing="10">
+      
+    <padding>
+        <Insets top="10" right="10" bottom="10" left="10"/>
+    </padding>
+    
+    <Label text="Update Task" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+    
+    <GridPane hgap="10" vgap="10">
+        <!-- Title -->
+        <Label text="Title:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+        <TextField fx:id="titleField" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+        
+        <!-- Description -->
+        <Label text="Description:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+        <TextArea fx:id="descriptionArea" GridPane.rowIndex="1" GridPane.columnIndex="1" prefRowCount="4"/>
+        
+        <!-- Due Date -->
+        <Label text="Due Date:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+        <DatePicker fx:id="dueDatePicker" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+        
+        <!-- Start Time -->
+        <Label text="Start Time:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+        <TextField fx:id="startTimeField" GridPane.rowIndex="3" GridPane.columnIndex="1" promptText="HH:mm"/>
+        
+        <!-- Priority -->
+        <Label text="Priority:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+        <CheckBox fx:id="priorityCheckBox" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+        
+        <!-- Completed (Status) -->
+        <Label text="Completed:" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+        <CheckBox fx:id="completedCheckBox" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+        
+        <!-- Recurrence -->
+        <Label text="Recurrence:" GridPane.rowIndex="6" GridPane.columnIndex="0"/>
+        <ComboBox fx:id="recurrenceComboBox" GridPane.rowIndex="6" GridPane.columnIndex="1">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <java.lang.String fx:value="None"/>
+                    <java.lang.String fx:value="Daily"/>
+                    <java.lang.String fx:value="Weekly"/>
+                    <java.lang.String fx:value="Fortnightly"/>
+                    <java.lang.String fx:value="Monthly"/>
+                </FXCollections>
+            </items>
+        </ComboBox>
+        
+        <!-- Category -->
+        <Label text="Category:" GridPane.rowIndex="7" GridPane.columnIndex="0"/>
+        <TextField fx:id="categoryField" GridPane.rowIndex="7" GridPane.columnIndex="1"/>
+    </GridPane>
+    
+    <!-- Buttons -->
+    <HBox spacing="10" alignment="CENTER_RIGHT">
+        <Button text="Cancel" onAction="#handleCancel"/>
+        <Button text="Update" onAction="#handleUpdate"/>
+    </HBox>
+</VBox>

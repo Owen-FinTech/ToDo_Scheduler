@@ -1,0 +1,13 @@
+com\scheduler\db\DatabaseInitializer.class
+com\scheduler\model\Task.class
+com\scheduler\App.class
+com\scheduler\ui\UpdateTaskController.class
+com\scheduler\model\User.class
+module-info.class
+com\scheduler\ui\CreateTaskController.class
+com\scheduler\ui\MainController.class
+com\scheduler\db\DatabaseUtil.class
+com\scheduler\db\dao\TaskDAO.class
+com\scheduler\db\dao\UserDAO.class
+com\scheduler\ui\LoginController.class
+com\scheduler\ui\RegisterController.class

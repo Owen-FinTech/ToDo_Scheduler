@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.scheduler.ui.MainController">
+    <!-- Left area: Filters and Calendar -->
+    <left>
+        <VBox spacing="10" prefWidth="220" BorderPane.alignment="CENTER">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+            <children>
+                <Label text="Filters:" style="-fx-font-weight: bold;" />
+                <!-- Grouping filter options (using RadioButtons as an example) -->
+                <VBox spacing="5">
+                    <children>
+                        <RadioButton text="All" fx:id="allButton" toggleGroup="$filterToggleGroup" selected="true"/>
+                        <RadioButton text="Priority" fx:id="priorityButton" toggleGroup="$filterToggleGroup"/>
+                        <RadioButton text="Overdue" fx:id="overdueButton" toggleGroup="$filterToggleGroup"/>
+                        <RadioButton text="Completed" fx:id="completedButton" toggleGroup="$filterToggleGroup"/>
+                    </children>
+                </VBox>
+                
+                <Separator />
+
+                <VBox spacing="5" alignment="CENTER">
+                    <!-- Month-Year label on its own line -->
+                    <Label fx:id="monthYearLabel" text="MARCH 2025" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+                    
+                    <!-- HBox for navigation buttons -->
+                    <HBox spacing="5" alignment="CENTER">
+                        <Button text="&lt;&lt; Year" onAction="#handlePreviousYear" 
+                                HBox.hgrow="ALWAYS" style="-fx-pref-width: 100;"/>
+                        <Button text="&lt; Month" onAction="#handlePreviousMonth" 
+                                HBox.hgrow="ALWAYS" style="-fx-pref-width: 100;"/>
+                        <Button text="Month &gt;" onAction="#handleNextMonth" 
+                                HBox.hgrow="ALWAYS" style="-fx-pref-width: 100;"/>
+                        <Button text="Year &gt;&gt;" onAction="#handleNextYear" 
+                                HBox.hgrow="ALWAYS" style="-fx-pref-width: 100;"/>
+                    </HBox>
+                </VBox>
+                
+                <!-- A GridPane to hold the monthly calendar days -->
+                <GridPane fx:id="calendarGrid" hgap="5" vgap="5">
+                    <!-- You can populate the calendar dynamically in the controller -->
+                </GridPane>
+            </children>
+        </VBox>
+    </left>
+    
+    <!-- Center area: Task List and Action Buttons -->
+    <center>
+        <VBox spacing="10" BorderPane.alignment="CENTER">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+            <children>
+                <!-- Action buttons -->
+                <HBox spacing="10">
+                    <children>
+                        <Button text="New" onAction="#handleNewTask"/>
+                        <Button text="Update" onAction="#handleUpdateTask"/>
+                        <Button text="Delete" onAction="#handleDeleteTask"/>
+                    </children>
+                </HBox>
+                <!-- Task Table -->
+                <TableView fx:id="taskTable">
+                    <columns>
+                        <TableColumn fx:id="nameColumn" text="Name" prefWidth="150" />
+                        <TableColumn fx:id="dateColumn" text="Date" prefWidth="100" />
+                        <TableColumn fx:id="timeColumn" text="Time" prefWidth="100" />
+                        <TableColumn fx:id="priorityColumn" text="Priority" prefWidth="100" />
+                        <TableColumn fx:id="completedColumn" text="Completed" prefWidth="100" />
+                        <!-- New columns -->
+                        <TableColumn fx:id="recurrenceColumn" text="Recurrence" prefWidth="100" />
+                        <TableColumn fx:id="categoryColumn" text="Category" prefWidth="100" />
+                    </columns>
+                </TableView>
+            </children>
+        </VBox>
+    </center>
+</BorderPane>

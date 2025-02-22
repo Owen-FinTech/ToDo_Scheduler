@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.scheduler.ui.LoginController">
+    <children>
+        <GridPane layoutX="50" layoutY="50" hgap="10" vgap="10">
+            <children>
+                <Label text="Username:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                <TextField fx:id="usernameField" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                <Label text="Password:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                <PasswordField fx:id="passwordField" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                <Button text="Login" onAction="#handleLoginButtonAction" 
+                        GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+                
+                <Label fx:id="errorLabel" textFill="red" 
+                       GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+                <Button text="Register" onAction="#handleRegisterNavigation" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+
+            </children>
+        </GridPane>
+    </children>
+</AnchorPane>
